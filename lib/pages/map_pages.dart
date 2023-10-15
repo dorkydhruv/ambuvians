@@ -1,4 +1,4 @@
-import 'package:ambuvians/widgets/panel_build.dart';
+import 'package:ambuvians/widgets/Bottom%20Panel/panel_build.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -15,6 +15,7 @@ class _Map_pageState extends State<Map_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SlidingUpPanel(
+        maxHeight: 500,
         panelBuilder: (sc) => PanelWidget(scrollController: sc),
         body: Container(
           child: FlutterMap(
