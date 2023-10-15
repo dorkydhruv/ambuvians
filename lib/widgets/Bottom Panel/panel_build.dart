@@ -20,19 +20,18 @@ class _PanelWidgetState extends State<PanelWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
     switch (state) {
       case Status.start:
         return StartContainer();
       case Status.address:
-      // TODO: Handle this case.
+        return AddressContainer();
       case Status.address2:
       // TODO: Handle this case.
       case Status.confirm:
       // TODO: Handle this case.
+      default:
+        return StartContainer();
     }
-    return StartContainer();
   }
 
   //Start COntainer
@@ -63,6 +62,94 @@ class _PanelWidgetState extends State<PanelWidget> {
         ));
   }
 
+  //Address Container
+  Widget AddressContainer() {
+    return SingleChildScrollView(
+      child: Container(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+          color: Colors.black,
+        ),
+        child: Container(
+          margin: EdgeInsets.all(30),
+          child: Column(children: [
+            const Center(
+              child: Text(
+                'Select Address',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Divider(
+              height: 0.4,
+            ),
+            Container(
+                margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: MediaQuery.of(context).size.height * 0.06,
+                decoration: const BoxDecoration(
+                    color: Colors.black,
+                    border: Border.fromBorderSide(
+                        BorderSide(color: Colors.white, width: 1))),
+                child: const Center(
+                  child: ListTile(
+                    leading: Icon(Icons.pin_drop_sharp),
+                    title: Text(
+                      'From',
+                      style: TextStyle(fontSize: 16, color: Colors.white30),
+                    ),
+                  ),
+                )),
+            Container(
+                margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: MediaQuery.of(context).size.height * 0.06,
+                decoration: const BoxDecoration(
+                    color: Colors.black,
+                    border: Border.fromBorderSide(
+                        BorderSide(color: Colors.white, width: 1))),
+                child: const Center(
+                  child: ListTile(
+                    leading: Icon(Icons.pin_drop_sharp),
+                    title: Text(
+                      'To',
+                      style: TextStyle(fontSize: 16, color: Colors.white30),
+                    ),
+                  ),
+                )),
+            const SizedBox(
+              height: 10,
+            ),
+            Divider(),
+            const SizedBox(
+              height: 10,
+            ),
+            const Text(
+              'Recent Places',
+              textAlign: TextAlign.left,
+              style: TextStyle(fontSize: 16, color: Colors.white54),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            locationTile(),
+            locationTile(),
+            locationTile()
+          ]),
+        ),
+      ),
+    );
+  }
+
   //drop down Ambulance selector Widget
   //will add parameters
   Widget Ambulance({required BuildContext context}) {
@@ -84,22 +171,45 @@ class _PanelWidgetState extends State<PanelWidget> {
             style: TextStyle(color: Colors.white70, fontSize: 10),
             // softWrap: true,
           ),
-          trailing: Container(
-            height: 40,
-            width: 90,
-            decoration: BoxDecoration(
-              color: const Color(0xFFDB0F27),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: const Center(
-              child: Text(
-                "Book",
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.w700),
+          trailing: GestureDetector(
+            onTap: () {
+              setState(() {
+                state = Status.address;
+              });
+            },
+            child: Container(
+              height: 40,
+              width: 90,
+              decoration: BoxDecoration(
+                color: const Color(0xFFDB0F27),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const Center(
+                child: Text(
+                  "Book",
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.w700),
+                ),
               ),
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  //Location Tile
+  Widget locationTile() {
+    return Container(
+      decoration: const BoxDecoration(),
+      child: const ListTile(
+        leading: Icon(Icons.pin_drop_outlined),
+        title: Text(
+          'Office',
+          style: TextStyle(color: Colors.white60),
+        ),
+        subtitle: Text('Ghaziabad India'),
+        trailing: Text('2.27km'),
       ),
     );
   }
