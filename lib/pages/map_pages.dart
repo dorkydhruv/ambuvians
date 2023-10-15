@@ -15,6 +15,7 @@ class _Map_pageState extends State<Map_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SlidingUpPanel(
+        maxHeight: 500,
         panelBuilder: (sc) => PanelWidget(scrollController: sc),
         body: Container(
           child: FlutterMap(

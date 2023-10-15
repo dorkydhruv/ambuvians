@@ -98,6 +98,7 @@ class _PanelWidgetState extends State<PanelWidget> {
                 height: MediaQuery.of(context).size.height * 0.06,
                 decoration: const BoxDecoration(
                     color: Colors.black,
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                     border: Border.fromBorderSide(
                         BorderSide(color: Colors.white, width: 1))),
                 child: const Center(
@@ -115,6 +116,7 @@ class _PanelWidgetState extends State<PanelWidget> {
                 height: MediaQuery.of(context).size.height * 0.06,
                 decoration: const BoxDecoration(
                     color: Colors.black,
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                     border: Border.fromBorderSide(
                         BorderSide(color: Colors.white, width: 1))),
                 child: const Center(
