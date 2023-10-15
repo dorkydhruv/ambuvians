@@ -1,4 +1,6 @@
 import 'package:ambuvians/authentication/login_with_phone.dart';
+import 'package:ambuvians/authentication/signup.dart';
+import 'package:ambuvians/pages/map_pages.dart';
 //import 'package:ambuvians/pages/map_pages.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginWithPhone(),
+      home: const Map_page(),
     );
   }
 }

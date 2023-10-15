@@ -3,14 +3,14 @@ import 'package:ambuvians/authentication/phone.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class LoginWithPhone extends StatefulWidget {
-  const LoginWithPhone({Key? key});
+class Login extends StatefulWidget {
+  const Login({Key? key});
 
   @override
-  State<LoginWithPhone> createState() => _LoginWithPhoneState();
+  State<Login> createState() => _Login();
 }
 
-class _LoginWithPhoneState extends State<LoginWithPhone> {
+class _Login extends State<Login> {
   bool isLoginSelected = true;
   bool isEmailSelected = false; // Indicates whether the login button is selected
 
