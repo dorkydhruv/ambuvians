@@ -145,7 +145,22 @@ class _PanelWidgetState extends State<PanelWidget> {
             ),
             locationTile(),
             locationTile(),
-            locationTile()
+            locationTile(),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: MediaQuery.of(context).size.height * 0.05,
+              decoration: BoxDecoration(
+                  color: const Color(0xFFDB0F27),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(15),
+                  )),
+              child: Center(
+                child: Text('Select'),
+              ),
+            )
           ]),
         ),
       ),
