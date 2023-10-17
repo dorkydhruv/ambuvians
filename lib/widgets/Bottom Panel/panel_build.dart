@@ -1,3 +1,4 @@
+import 'package:ambuvians/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 enum Status {
@@ -19,6 +20,15 @@ class _PanelWidgetState extends State<PanelWidget> {
   var state = Status.start;
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    setState(() {
+      state = Status.start;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     switch (state) {
       case Status.start:
@@ -28,7 +38,7 @@ class _PanelWidgetState extends State<PanelWidget> {
       case Status.address2:
       // TODO: Handle this case.
       case Status.confirm:
-      // TODO: Handle this case.
+        return confirmPanel();
       default:
         return StartContainer();
     }
@@ -74,7 +84,7 @@ class _PanelWidgetState extends State<PanelWidget> {
           color: Colors.black,
         ),
         child: Container(
-          margin: EdgeInsets.all(30),
+          margin: const EdgeInsets.all(30),
           child: Column(children: [
             const Center(
               child: Text(
@@ -93,7 +103,7 @@ class _PanelWidgetState extends State<PanelWidget> {
               height: 0.4,
             ),
             Container(
-                margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+                margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
                 width: MediaQuery.of(context).size.width * 0.8,
                 height: MediaQuery.of(context).size.height * 0.06,
                 decoration: const BoxDecoration(
@@ -111,7 +121,7 @@ class _PanelWidgetState extends State<PanelWidget> {
                   ),
                 )),
             Container(
-                margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+                margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
                 width: MediaQuery.of(context).size.width * 0.8,
                 height: MediaQuery.of(context).size.height * 0.06,
                 decoration: const BoxDecoration(
@@ -131,7 +141,7 @@ class _PanelWidgetState extends State<PanelWidget> {
             const SizedBox(
               height: 10,
             ),
-            Divider(),
+            const Divider(),
             const SizedBox(
               height: 10,
             ),
@@ -149,17 +159,13 @@ class _PanelWidgetState extends State<PanelWidget> {
             const SizedBox(
               height: 20,
             ),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              height: MediaQuery.of(context).size.height * 0.05,
-              decoration: BoxDecoration(
-                  color: const Color(0xFFDB0F27),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(15),
-                  )),
-              child: Center(
-                child: Text('Select'),
-              ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  state = Status.confirm;
+                });
+              },
+              child: Widgets().buildButton('Select', context: context),
             )
           ]),
         ),
@@ -167,15 +173,61 @@ class _PanelWidgetState extends State<PanelWidget> {
     );
   }
 
+  //Confirm WIDGETSS
+  Widget confirmPanel() {
+    return Container(
+        decoration: const BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.all(20),
+            decoration: const BoxDecoration(),
+            child: Column(
+              children: [
+                const Center(
+                  child: Text(
+                    'Select Vehicle',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Divider(
+                  height: 0.4,
+                ),
+                locationTile(),
+                locationTile(),
+                Ambulance(context: context),
+                Ambulance(context: context),
+                const SizedBox(
+                  height: 20,
+                ),
+                Widgets().buildButton('Confirm Ride', context: context)
+              ],
+            ),
+          ),
+        ));
+  }
+
   //drop down Ambulance selector Widget
   //will add parameters
   Widget Ambulance({required BuildContext context}) {
     return Container(
-      margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+      margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
       height: MediaQuery.of(context).size.height * 0.1,
       decoration: BoxDecoration(
         color: Colors.grey.shade800,
-        borderRadius: BorderRadius.all(Radius.circular(20)),
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
       ),
       child: Center(
         child: ListTile(
