@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 enum Status {
   start,
   address,
-  address2,
+  driverConfirm,
   confirm,
 }
 
@@ -19,14 +19,14 @@ class PanelWidget extends StatefulWidget {
 class _PanelWidgetState extends State<PanelWidget> {
   var state = Status.start;
 
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    setState(() {
-      state = Status.start;
-    });
-  }
+  // @override
+  // void dispose() {
+  //   // TODO: implement dispose
+  //   super.dispose();
+  //   setState(() {
+  //     state = Status.start;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +35,8 @@ class _PanelWidgetState extends State<PanelWidget> {
         return StartContainer();
       case Status.address:
         return AddressContainer();
-      case Status.address2:
-      // TODO: Handle this case.
+      case Status.driverConfirm:
+        return driverConfirmation();
       case Status.confirm:
         return confirmPanel();
       default:
@@ -212,11 +212,105 @@ class _PanelWidgetState extends State<PanelWidget> {
                 const SizedBox(
                   height: 20,
                 ),
-                Widgets().buildButton('Confirm Ride', context: context)
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      // state = Status.driverConfirm;
+                    });
+                  },
+                  child:
+                      Widgets().buildButton('Confirm Ride', context: context),
+                )
               ],
             ),
           ),
         ));
+  }
+
+  //Driver COnfirmation..
+  Widget driverConfirmation() {
+    return SingleChildScrollView(
+      child: Container(
+        // width: MediaQuery.sizeOf(context).width,
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+            color: Colors.black,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            )),
+        child: Container(
+          margin: EdgeInsets.all(10),
+          child: Column(children: [
+            Row(
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  child: const ListTile(
+                    leading: Icon(
+                      Icons.pin_drop_rounded,
+                      color: Colors.red,
+                    ),
+                    title: Text(
+                      'Current Location',
+                      style: TextStyle(color: Colors.white38),
+                    ),
+                    subtitle: Text(
+                      "KIET College",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                RotatedBox(
+                  quarterTurns: 1,
+                  child: Image.asset(
+                    'src/arrow.png',
+                    width: 40,
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  child: const ListTile(
+                    leading: Icon(
+                      Icons.pin_drop_rounded,
+                      color: Colors.yellow,
+                    ),
+                    title: Text(
+                      'Surya Hospital',
+                      style: TextStyle(color: Colors.white38),
+                    ),
+                    subtitle: Text(
+                      "Railway Road, Muradnagar",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+                decoration: BoxDecoration(color: Colors.grey[800]),
+                child: const ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: AssetImage('src/man.png'),
+                  ),
+                  title: Text(
+                    'Mr. Raj',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  subtitle: Text(
+                    "Driver",
+                    style: TextStyle(color: Color.fromARGB(181, 15, 139, 184)),
+                  ),
+                ))
+          ]),
+        ),
+      ),
+    );
   }
 
   //drop down Ambulance selector Widget

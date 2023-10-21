@@ -16,27 +16,24 @@ class _Map_pageState extends State<Map_page> {
     return Scaffold(
       body: SlidingUpPanel(
         maxHeight: 500,
+        //drop-down Panel generated
         panelBuilder: (sc) => PanelWidget(scrollController: sc),
-        body: Container(
-          child: FlutterMap(
-            options: MapOptions(backgroundColor: Colors.black),
-            children: [
-              TileLayer(
-                minZoom: 1,
-                maxZoom: 18,
-                backgroundColor: Colors.black,
-                urlTemplate:
-                    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                subdomains: const ['a', 'b', 'c'],
-              )
-            ],
-          ),
+        body: FlutterMap(
+          options: MapOptions(backgroundColor: Colors.black),
+          children: [
+            TileLayer(
+              minZoom: 1,
+              maxZoom: 18,
+              backgroundColor: Colors.black,
+              urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+              subdomains: const ['a', 'b', 'c'],
+            )
+          ],
         ),
       ),
     );
   }
 }
-
 
 /*
 SvgPicture.asset(

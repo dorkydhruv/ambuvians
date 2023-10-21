@@ -1,9 +1,9 @@
-//import 'package:ambuvians/authentication/login_with_phone.dart';
-//import 'package:ambuvians/authentication/otp_verification.dart';
+import 'package:ambuvians/authentication/login_with_phone.dart';
+import 'package:ambuvians/authentication/otp_verification.dart';
 import 'package:ambuvians/pages/dashboard.dart';
-//import 'package:ambuvians/authentication/signup.dart';
-//import 'package:ambuvians/pages/map_pages.dart';
-//import 'package:ambuvians/pages/map_pages.dart';
+import 'package:ambuvians/authentication/signup.dart';
+import 'package:ambuvians/pages/map_pages.dart';
+import 'package:ambuvians/pages/map_pages.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,8 +12,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Dashboard(),
+      home: const Dashboard(),
     );
   }
 }

@@ -15,7 +15,7 @@ class _Dashboard_CardsState extends State<Dashboard_Cards> {
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4, // 4 cards in each row
-          childAspectRatio: 1/ 1.7, // Set the aspect ratio to 2/3 (4:3)
+          childAspectRatio: 1 / 1.7, // Set the aspect ratio to 2/3 (4:3)
         ),
         itemCount: 8, // A total of 8 cards
         itemBuilder: (context, index) {
@@ -63,27 +63,22 @@ class MyCard extends StatelessWidget {
       margin: const EdgeInsets.all(5),
       child: Column(
         children: [
-             
-             Container(
-              margin: EdgeInsets.only(top: 20, bottom: 20),
-              width: MediaQuery.of(context).size.width*0.15,
-              height: MediaQuery.of(context).size.width*0.15,
-               child: SvgPicture.asset(
-                'src/Medical History.svg',
-                fit: BoxFit.fill,
-                         ),
-             ),
-         
+          Container(
+            margin: EdgeInsets.only(top: 20, bottom: 20),
+            width: MediaQuery.of(context).size.width * 0.15,
+            height: MediaQuery.of(context).size.width * 0.15,
+            child: SvgPicture.asset(
+              'src/Medical History.svg',
+              fit: BoxFit.fill,
+            ),
+          ),
           const SizedBox(height: 10),
           Text(
             texts[index],
-            style: TextStyle(fontSize: 13,
-            fontWeight: FontWeight.w400),
+            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w400),
           ),
         ],
       ),
     );
   }
 }
-
-
