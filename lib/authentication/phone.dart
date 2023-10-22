@@ -1,3 +1,4 @@
+import 'package:ambuvians/authentication/otp_verification.dart';
 import 'package:flutter/material.dart';
 
 class Phone extends StatefulWidget {
@@ -38,7 +39,7 @@ class _PhoneState extends State<Phone> {
               ),
               child: TextButton(
                 onPressed: () {
-                  
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (tc)=> OTPVerificationPage()), (route) => false);
                 },
                 child: const Text(
                   'GET OTP',

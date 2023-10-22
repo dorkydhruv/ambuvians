@@ -1,3 +1,5 @@
+import 'package:ambuvians/authentication/signup.dart';
+import 'package:ambuvians/pages/dashboard.dart';
 import 'package:flutter/material.dart';
 
 class Email extends StatefulWidget {
@@ -57,7 +59,7 @@ class _EmailState extends State<Email> {
           ),
         ),
         
-        const SizedBox(height: 50),
+        const SizedBox(height: 5),
         Container(
           width: MediaQuery.of(context).size.width * 0.9,
           decoration: BoxDecoration(
@@ -65,7 +67,9 @@ class _EmailState extends State<Email> {
             borderRadius: BorderRadius.circular(20),
           ),
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (ctc)=> Dashboard()), (route) => false);
+            },
             child: const Text(
               'Sign In',
               style: TextStyle(
@@ -81,7 +85,12 @@ class _EmailState extends State<Email> {
           children: <Widget>[
             Text("Don't have an account? "),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignupPage()),
+                );
+              },
               child: Text('SignUp', style: TextStyle(color: Colors.red)),
             ),
           ],

@@ -11,8 +11,7 @@ class Dashboard_Cards extends StatefulWidget {
 class _Dashboard_CardsState extends State<Dashboard_Cards> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GridView.builder(
+    return GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4, // 4 cards in each row
           childAspectRatio: 1 / 1.7, // Set the aspect ratio to 2/3 (4:3)
@@ -21,7 +20,7 @@ class _Dashboard_CardsState extends State<Dashboard_Cards> {
         itemBuilder: (context, index) {
           return MyCard(index);
         },
-      ),
+      
     );
   }
 }
@@ -48,14 +47,14 @@ class MyCard extends StatelessWidget {
     */
 
     final List<String> texts = [
-      'Prescription',
-      'Card 2',
-      'Card 3',
-      'Card 4',
-      'Card 5',
-      'Card 6',
-      'Card 7',
-      'Card 8',
+      'Medical Reports',
+      'Prescriptions',
+      'Medicines',
+      'Dosage',
+      'Medicine Analyzer',
+      'Report Analyzer',
+      'Lab test Home',
+      'Kalyaanam',
     ];
 
     return Card(
@@ -69,13 +68,16 @@ class MyCard extends StatelessWidget {
             height: MediaQuery.of(context).size.width * 0.15,
             child: SvgPicture.asset(
               'src/Medical History.svg',
-              fit: BoxFit.fill,
+              fit: BoxFit.fitHeight,
             ),
           ),
-          const SizedBox(height: 10),
-          Text(
-            texts[index],
-            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w400),
+          // const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10,left: 10,right: 10),
+            child: Text(
+              texts[index],
+              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w400),
+            ),
           ),
         ],
       ),
