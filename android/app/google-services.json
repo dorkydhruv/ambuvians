@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "265010857350",
+    "firebase_url": "https://ambuvians-833cc-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "ambuvians-833cc",
+    "storage_bucket": "ambuvians-833cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265010857350:android:57c96fa4b2e06aadda9807",
+        "android_client_info": {
+          "package_name": "com.example.ambuvians"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265010857350-ej8r98mdkgimno07tpfkah7vjta03mdj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ambuvians",
+            "certificate_hash": "4ff94fa4668f5428210f10f666f8fcbe42e67b22"
+          }
+        },
+        {
+          "client_id": "265010857350-8i77hkrjnat3n39t4v7jllfdpk0c7j0f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-aUmrB3WDr2zvIqmZxaq00feoOYXEEdg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265010857350-8i77hkrjnat3n39t4v7jllfdpk0c7j0f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "265010857350-eecndudkmikvstlkf2932iisiv316j56.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ambuvians"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265010857350:android:7c8eb8831ab75497da9807",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265010857350-8i77hkrjnat3n39t4v7jllfdpk0c7j0f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-aUmrB3WDr2zvIqmZxaq00feoOYXEEdg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265010857350-8i77hkrjnat3n39t4v7jllfdpk0c7j0f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "265010857350-eecndudkmikvstlkf2932iisiv316j56.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ambuvians"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
