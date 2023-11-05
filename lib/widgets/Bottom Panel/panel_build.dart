@@ -240,7 +240,7 @@ class _PanelWidgetState extends State<PanelWidget> {
               topRight: Radius.circular(20),
             )),
         child: Container(
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           child: Column(children: [
             Row(
               children: [

@@ -51,7 +51,7 @@ class UploadDocuments extends StatelessWidget {
         ],
       ),
       body: Container(
-        color: Color.fromRGBO(254, 249, 243, 1),
+        color: const Color.fromRGBO(254, 249, 243, 1),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -233,7 +233,7 @@ class UploadDocuments extends StatelessWidget {
                 flex: 4,
                 //new document and recent box
                 child: Center(
-                  child: Container(
+                  child: SizedBox(
                     //add radius to this container
                     width: MediaQuery.of(context).size.width * 0.85,
                     height: MediaQuery.of(context).size.height * 0.3,
@@ -304,7 +304,7 @@ class UploadDocuments extends StatelessWidget {
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 243, 240, 240),
+                                    color: const Color.fromARGB(255, 243, 240, 240),
                                     borderRadius: BorderRadius.circular(
                                         20.0), // Adjust the radius as needed
                                     border: Border.all(
@@ -343,7 +343,7 @@ class UploadDocuments extends StatelessWidget {
                       horizontal: 29.0), // Add margin for spacing
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: const Color.fromRGBO(
+                      backgroundColor: const Color.fromRGBO(
                           219, 15, 39, 1), // Set button background color to red
                       shape: RoundedRectangleBorder(
                         borderRadius:

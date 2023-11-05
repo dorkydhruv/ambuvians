@@ -39,7 +39,7 @@ class _PhoneState extends State<Phone> {
               ),
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (tc)=> OTPVerificationPage()), (route) => false);
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (tc)=> const OTPVerificationPage()), (route) => false);
                 },
                 child: const Text(
                   'GET OTP',

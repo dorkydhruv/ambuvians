@@ -40,7 +40,7 @@ class ProfilePage extends StatelessWidget {
                     margin: const EdgeInsets.only(top: 50,),
                     child: Container(
                       alignment: Alignment.centerLeft,
-                      margin: EdgeInsets.all(20),
+                      margin: const EdgeInsets.all(20),
                       child: ListView(
 
                         children: [
@@ -62,7 +62,7 @@ class ProfilePage extends StatelessWidget {
                           Widgets().textSubHead("1EG4-TES-M416",size: 16),const SizedBox(height: 15,),
                           Row(
                             children: [button(context: context,str: "Edit profile"),const SizedBox(width: 10,),GestureDetector(onTap: (){
-                              Navigator.of(context).push(MaterialPageRoute(builder: (ctc)=> UploadDocuments()));
+                              Navigator.of(context).push(MaterialPageRoute(builder: (ctc)=> const UploadDocuments()));
                             },child: button(context: context,str: "Upload Document",color: Colors.red),)],
                           )
                         ],
@@ -84,7 +84,7 @@ class ProfilePage extends StatelessWidget {
       borderRadius: BorderRadius.circular(20)),
       child: Center(child: Text(
 str,
-style: TextStyle(
+style: const TextStyle(
 fontSize: 16,
 color: Colors.white,
 fontWeight: FontWeight.w500,

@@ -21,7 +21,7 @@ class Widgets {
   textHead(String str, {double? size=11}){
     return  Text(str,
                             style: TextStyle(
-                      color: Color(0xFF1A1A1A), 
+                      color: const Color(0xFF1A1A1A), 
                                 fontSize: size,
                           fontFamily: 'Poppins',
                         fontWeight: FontWeight.w500,
@@ -33,7 +33,7 @@ class Widgets {
     return Text(
     str,
     style: TextStyle(
-        color: Color(0xFFDE7100),
+        color: const Color(0xFFDE7100),
         fontSize: size,
         fontFamily: 'Poppins',
         fontWeight: FontWeight.w400,
