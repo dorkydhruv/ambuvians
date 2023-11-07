@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Login extends StatefulWidget {
-  const Login({Key? key});
+  const Login({super.key});
 
   @override
   State<Login> createState() => _Login();
@@ -12,7 +12,8 @@ class Login extends StatefulWidget {
 
 class _Login extends State<Login> {
   bool isLoginSelected = true;
-  bool isEmailSelected = false; // Indicates whether the login button is selected
+  bool isEmailSelected =
+      false; // Indicates whether the login button is selected
 
   @override
   Widget build(BuildContext context) {
@@ -77,8 +78,8 @@ class _Login extends State<Login> {
                   ],
                 ),
               ),
-              SizedBox(height:isLoginSelected? 80:40),
-              isLoginSelected? Phone():Email()
+              SizedBox(height: isLoginSelected ? 80 : 40),
+              isLoginSelected ? const Phone() : const Email()
             ],
           ),
         ),

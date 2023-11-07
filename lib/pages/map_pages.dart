@@ -19,7 +19,7 @@ class _Map_pageState extends State<Map_page> {
         //drop-down Panel generated
         panelBuilder: (sc) => PanelWidget(scrollController: sc),
         body: FlutterMap(
-          options: MapOptions(backgroundColor: Colors.black),
+          options: const MapOptions(backgroundColor: Colors.black),
           children: [
             TileLayer(
               minZoom: 1,

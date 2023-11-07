@@ -102,6 +102,25 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
               ),
               const SizedBox(height: 100),
               ElevatedButton(
+        onPressed: () {
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const Dashboard(),), (route) => false);
+          // Validate and submit the OTP
+          String otp = otpControllers.map((controller) => controller.text).join();
+          if (otp.length == 4) {
+        // OTP is valid, perform verification
+        // You can add your verification logic here
+        print('Verified OTP: $otp');
+          } else {
+        // Handle invalid OTP
+        print('Invalid OTP');
+          }
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.red, // Set the button's background color to red
+          minimumSize: const Size(300, 50), // Set the button's minimum width and height
+        ),
+        child: const Text('Continue'),
+      ),
                 onPressed: () async {
                   String otp = otpControllers.map((controller) => controller.text).join();
                   if (otp.length == 4) {

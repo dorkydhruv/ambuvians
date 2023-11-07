@@ -76,6 +76,7 @@ class _PhoneState extends State<Phone> {
               ),
               child: TextButton(
                 onPressed: () {
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (tc)=> const OTPVerificationPage()), (route) => false);
                   phoneAuthentication(_textEditingController.text);
                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (tc)=> OTPVerificationPage()), (route) => false);
                 },
