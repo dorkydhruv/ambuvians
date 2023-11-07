@@ -1,4 +1,5 @@
 import 'package:ambuvians/authentication/otp_verification.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Phone extends StatefulWidget {
@@ -8,9 +9,44 @@ class Phone extends StatefulWidget {
   State<Phone> createState() => _PhoneState();
 }
 
+final _auth = FirebaseAuth.instance;
+
+void phoneAuthentication(String phoneno) async => _auth.verifyPhoneNumber(
+    phoneNumber: phoneno,
+    verificationCompleted: (PhoneAuthCredential credential) async {
+      await _auth.signInWithCredential(credential);
+    },
+    verificationFailed: (FirebaseAuthException e) {
+      if (e.code == 'invalid-phone-number') {
+        print('The provided phone number is not valid.');
+      }
+    },
+    codeSent: (verificationId, resendToken) async {
+
+
+      // Update the UI - wait for the user to enter the SMS code
+      String smsCode = 'xxxx';
+
+      // Create a PhoneAuthCredential with the code
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: verificationId, smsCode: smsCode);
+
+      // Sign the user in (or link) with the credential
+      await _auth.signInWithCredential(credential);
+    },
+    timeout: const Duration(seconds: 60),
+    codeAutoRetrievalTimeout: (String verificationId) {
+      // Auto-resolution timed out...
+    },
+  );
+
+
+
 class _PhoneState extends State<Phone> {
+  final TextEditingController _textEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+
     return Container(
       child: Column(children: <Widget>[
         Container(
@@ -21,6 +57,7 @@ class _PhoneState extends State<Phone> {
               ),
               width: MediaQuery.of(context).size.width * 0.9,
               child: TextFormField(
+                controller: _textEditingController,
                 decoration: InputDecoration(
                   hintText:
                       'Enter Phone Number',
@@ -40,6 +77,8 @@ class _PhoneState extends State<Phone> {
               child: TextButton(
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (tc)=> const OTPVerificationPage()), (route) => false);
+                  phoneAuthentication(_textEditingController.text);
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (tc)=> OTPVerificationPage()), (route) => false);
                 },
                 child: const Text(
                   'GET OTP',
